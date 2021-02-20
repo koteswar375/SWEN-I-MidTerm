@@ -9,6 +9,19 @@ namespace MidTermProject.Controllers
 {
     public class Level1Controller : Controller
     {
+        class Capcacity
+        {
+            public int CapacityOfBigBucket { get; set; }
+            public int CapacityOfSmallBucket { get; set; }
+
+            public void Capacity()
+            {
+                CapacityOfBigBucket = 5;
+                CapacityOfSmallBucket = 3;
+            }
+        }
+        
+    
         // GET: Level1Controller
         public ActionResult Index()
         {
@@ -18,8 +31,9 @@ namespace MidTermProject.Controllers
         // GET: Level1Controller/Bucket
         public ActionResult Bucket()
         {
-            ViewData["Message"] = "Hello world from Controller";
-            return View();
+            ViewData["CapacityOfBigBucket"] = 5;
+            ViewData["CapacityOfSmallBucket"] = 3;
+            return View("Bucket");
         }
 
         // GET: Level1Controller/Create

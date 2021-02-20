@@ -1,11 +1,44 @@
 ﻿@page
 @model MidTermProject.Views.Level1.BucketModel
 @{
-    ViewData["Message"] = "Hello world";
+
 }
+
+<script>
+
+    function fillBigBucket() {
+
+    }
+
+    function post() {
+        $.ajax({
+            type: "POST",
+            url: MyAppUrlSettings.MyUsefulUrl,
+            data: "{queryString:'" + searchVal + "'}",
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            success: function (data) {
+                alert("here" + data.d.toString());
+            });
+    }
+   
+</script>
 
 
 <div>
-    <h2>@ViewData["Message"]</h2>
     
+    <div class="d-flex justify-content-around align-items-baseline mt-5" style="height:100vh; width:100vw; max-width:100%;">
+        <div class="w-50 h-100 d-flex flex-column align-items-center">
+            <h5>Capacity:</h5>@Html.ViewData["CapacityOfBigBucket"]
+            <div class="w-25 h-50 bg-danger"></div>
+            <button class="w-25  btn btn-dark">Fill</button>
+            <button class="w-25  btn btn-warning">Empty</button>
+        </div>
+        <div class="w-50 h-100 d-flex flex-column align-items-center">
+            <h5>Capacity:</h5>@Html.ViewData["CapacityOfSmallBucket"]
+            <div class="w-25 h-25 bg-danger"></div>
+            <button class="w-25  btn btn-dark">Fill</button>
+            <button class="w-25  btn btn-warning">Empty</button>
+        </div>
+    </div>
 </div>
